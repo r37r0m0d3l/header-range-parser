@@ -33,6 +33,21 @@
   "engines": {
     "node": ">= 12.20"
   },
+  "exports": {
+    ".": {
+      "browser": {
+        "import": "./dist/index.mjs",
+        "require": "./dist/index.cjs"
+      },
+      "node": {
+        "import": "./dist/index.mjs",
+        "require": "./dist/index.cjs"
+      },
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.js"
+    }
+  },
   "files": [
     "dist/index.cjs",
     "dist/index.cjs.map",
@@ -42,6 +57,7 @@
     "dist/index.mjs",
     "dist/index.mjs.map"
   ],
+  "homepage": "https://github.com/r37r0m0d3l/header-range-parser",
   "jest": {
     "verbose": true
   },
@@ -69,6 +85,7 @@
     "build:dev": "node ./build.cjs -- --minify=false --sourcemap=true",
     "build:prod": "node ./build.cjs -- --minify=true --sourcemap=true"
   },
+  "type": "module",
   "types": "dist/index.d.ts",
-  "version": "0.0.1"
+  "version": "0.0.2"
 }

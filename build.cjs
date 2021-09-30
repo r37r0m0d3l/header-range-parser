@@ -94,7 +94,7 @@ async function cjs() {
 async function js() {
   return new Promise((resolve) => {
     esbuild
-      .build({ ...buildOptions, ...{ format: "iife", outExtension: { ".js": ".js" } } })
+      .build({ ...buildOptions, ...{ format: /*"iife"*/ "cjs", outExtension: { ".js": ".js" } } })
       .then(resolve)
       .catch(() => process.exit(3));
   });

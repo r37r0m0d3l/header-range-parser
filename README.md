@@ -3,13 +3,12 @@
 Range header field parser. Fork of a̶b̶a̶n̶d̶o̶n̶e̶d̶ [range-parser](https://github.com/jshttp/range-parser). If you write to me with a request to change or update something, I will do it. Honestly 👼.
 
 [![NPM Version][npm-version-image]][npm-url]
-[![NPM Downloads][npm-downloads-image]][npm-url]
+[![downloads](https://badgen.net/npm/dt/header-range-parser?&icon=terminal&label=downloads&color=009688)](https://github.com/r37r0m0d3l/header-range-parser)
 [![types](https://badgen.net/npm/types/header-range-parser?&icon=typescript&label=types&color=1E90FF)](https://github.com/r37r0m0d3l/header-range-parser)
 [![Node.js Version][node-image]][node-url]
 [![Build Status][travis-image]][travis-url]
-[![Coverage Status](https://coveralls.io/repos/github/r37r0m0d3l/header-range-parser/badge.svg?branch=main)](https://coveralls.io/github/r37r0m0d3l/header-range-parser?branch=main)
 [![build](https://badgen.net/travis/r37r0m0d3l/header-range-parser?&icon=travis&label=build)](https://github.com/r37r0m0d3l/header-range-parser)
-[![lgtm](https://badgen.net/lgtm/grade/g/r37r0m0d3l/header-range-parser?&icon=lgtm&label=lgtm:js/ts&color=00C853&)](https://github.com/r37r0m0d3l/header-range-parser)
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/r37r0m0d3l/header-range-parser.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/r37r0m0d3l/header-range-parser/context:javascript)
 
 Range header field parser.
 
