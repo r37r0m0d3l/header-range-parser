@@ -7,7 +7,7 @@ Range header field parser. Fork of a̶b̶a̶n̶d̶o̶n̶e̶d̶ [range-parser](ht
 [![TypeScript Typings][ts-img]][ts-url]
 [![Node.js Version][node-image]][node-url]
 [![Build Status][travis-image]][travis-url]
-[![Test Coverage][coveralls-image]][coveralls-url]
+[![Coverage Status][coveralls-image]][coveralls-url]
 
 
 Range header field parser.
@@ -90,14 +90,22 @@ parseRange(
 //    ]
 ```
 
-[coveralls-image]: https://badgen.net/coveralls/c/github/jshttp/header-range-parser/master
-[coveralls-url]: https://coveralls.io/r/r37r0m0d3l/header-range-parser?branch=master
+## See also
+
+[💾 My other projects](https://r37r0m0d3l.icu/open_source_map)
+
+<img alt="Open Source" src="https://raw.githubusercontent.com/r37r0m0d3l/r37r0m0d3l/master/osmap.svg?sanitize=true" width="960" height="520" style="display:block;height:auto;margin-left:auto;margin-right:auto;min-height:520px;min-width:960px;width:100%;">
+
+<!-- Badges -->
+
+[coveralls-image]: https://badgen.net/coveralls/c/github/r37r0m0d3l/header-range-parser/master
+[coveralls-url]: https://badgen.net/coveralls/c/github/r37r0m0d3l/header-range-parser
 [node-image]: https://badgen.net/npm/node/header-range-parser
 [node-url]: https://nodejs.org/en/download
 [npm-downloads-image]: https://badgen.net/npm/dm/header-range-parser
 [npm-url]: https://npmjs.org/package/header-range-parser
 [npm-version-image]: https://badgen.net/npm/v/header-range-parser
-[travis-image]: https://badgen.net/travis/r37r0m0d3l/header-range-parser/master
-[travis-url]: https://travis-ci.org/r37r0m0d3l/header-range-parser
-[ts-url]: https://github.com/r37r0m0d3l/header-range-parser/blob/master/index.d.ts
+[travis-image]: https://badgen.net/travis/r37r0m0d3l/header-range-parser
+[travis-url]: https://travis-ci.com/github/r37r0m0d3l/header-range-parser
+[ts-url]: https://github.com/r37r0m0d3l/header-range-parser/blob/master/dist/index.d.ts
 [ts-img]: https://badgen.net/npm/types/r37r0m0d3l/header-range-parser?&icon=typescript&label=types&color=1E90FF
