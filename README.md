@@ -2,13 +2,13 @@
 
 Range header field parser. Fork of a̶b̶a̶n̶d̶o̶n̶e̶d̶ [range-parser](https://github.com/jshttp/range-parser). If you write to me with a request to change or update something, I will do it. Honestly 👼.
 
-[![NPM Version][npm-version-image]][npm-url]
-[![downloads](https://badgen.net/npm/dt/header-range-parser?&icon=terminal&label=downloads&color=009688)](https://github.com/r37r0m0d3l/header-range-parser)
-[![types](https://badgen.net/npm/types/header-range-parser?&icon=typescript&label=types&color=1E90FF)](https://github.com/r37r0m0d3l/header-range-parser)
 [![Node.js Version][node-image]][node-url]
-[![Build Status][travis-image]][travis-url]
-[![build](https://badgen.net/travis/r37r0m0d3l/header-range-parser?&icon=travis&label=build)](https://github.com/r37r0m0d3l/header-range-parser)
-[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/r37r0m0d3l/header-range-parser.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/r37r0m0d3l/header-range-parser/context:javascript)
+[![npm](https://badgen.net/npm/v/header-range-parser?&icon=npm&label=npm&color=DD3636&v&v=1.0.0)](https://www.npmjs.com/package/header-range-parser)
+[![downloads](https://badgen.net/npm/dt/header-range-parser?&icon=terminal&label=downloads&color=009688&v=1.0.0)](https://github.com/r37r0m0d3l/header-range-parser)
+[![stars](https://badgen.net/github/stars/r37r0m0d3l/header-range-parser?&icon=github&label=stars&color=ffcc33&v=1.0.0)](https://github.com/r37r0m0d3l/header-range-parser)
+[![types](https://badgen.net/npm/types/header-range-parser?&icon=typescript&label=types&color=1E90FF&v=1.0.0)](https://github.com/r37r0m0d3l/header-range-parser)
+[![build](https://badgen.net/travis/r37r0m0d3l/header-range-parser?&icon=travis&label=build&v=1.0.0)](https://github.com/r37r0m0d3l/header-range-parser)
+[![lgtm](https://badgen.net/lgtm/grade/g/r37r0m0d3l/header-range-parser?&icon=lgtm&label=lgtm:js/ts&color=00C853&v=1.0.0)](https://github.com/r37r0m0d3l/header-range-parser)
 
 Range header field parser.
 
@@ -100,8 +100,3 @@ parseRange(
 
 [node-image]: https://badgen.net/npm/node/header-range-parser
 [node-url]: https://nodejs.org/en/download
-[npm-downloads-image]: https://badgen.net/npm/dm/header-range-parser
-[npm-url]: https://npmjs.org/package/header-range-parser
-[npm-version-image]: https://badgen.net/npm/v/header-range-parser
-[travis-image]: https://badgen.net/travis/r37r0m0d3l/header-range-parser
-[travis-url]: https://travis-ci.com/github/r37r0m0d3l/header-range-parser
