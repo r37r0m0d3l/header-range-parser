@@ -4,11 +4,12 @@ Range header field parser. Fork of a̶b̶a̶n̶d̶o̶n̶e̶d̶ [range-parser](ht
 
 [![NPM Version][npm-version-image]][npm-url]
 [![NPM Downloads][npm-downloads-image]][npm-url]
-[![TypeScript Typings][ts-img]][ts-url]
+[![types](https://badgen.net/npm/types/header-range-parser?&icon=typescript&label=types&color=1E90FF)](https://github.com/r37r0m0d3l/header-range-parser)
 [![Node.js Version][node-image]][node-url]
 [![Build Status][travis-image]][travis-url]
-[![Coverage Status][coveralls-image]][coveralls-url]
-
+[![Coverage Status](https://coveralls.io/repos/github/r37r0m0d3l/header-range-parser/badge.svg?branch=main)](https://coveralls.io/github/r37r0m0d3l/header-range-parser?branch=main)
+[![build](https://badgen.net/travis/r37r0m0d3l/header-range-parser?&icon=travis&label=build)](https://github.com/r37r0m0d3l/header-range-parser)
+[![lgtm](https://badgen.net/lgtm/grade/g/r37r0m0d3l/header-range-parser?&icon=lgtm&label=lgtm:js/ts&color=00C853&)](https://github.com/r37r0m0d3l/header-range-parser)
 
 Range header field parser.
 
@@ -98,8 +99,6 @@ parseRange(
 
 <!-- Badges -->
 
-[coveralls-image]: https://badgen.net/coveralls/c/github/r37r0m0d3l/header-range-parser/master
-[coveralls-url]: https://badgen.net/coveralls/c/github/r37r0m0d3l/header-range-parser
 [node-image]: https://badgen.net/npm/node/header-range-parser
 [node-url]: https://nodejs.org/en/download
 [npm-downloads-image]: https://badgen.net/npm/dm/header-range-parser
@@ -107,5 +106,3 @@ parseRange(
 [npm-version-image]: https://badgen.net/npm/v/header-range-parser
 [travis-image]: https://badgen.net/travis/r37r0m0d3l/header-range-parser
 [travis-url]: https://travis-ci.com/github/r37r0m0d3l/header-range-parser
-[ts-url]: https://github.com/r37r0m0d3l/header-range-parser/blob/master/dist/index.d.ts
-[ts-img]: https://badgen.net/npm/types/r37r0m0d3l/header-range-parser?&icon=typescript&label=types&color=1E90FF
