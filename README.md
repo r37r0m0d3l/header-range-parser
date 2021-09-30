@@ -102,22 +102,22 @@ parseRange(
 
 <!-- Badges -->
 
-[npm-version-img]: https://badgen.net/npm/v/header-range-parser?&icon=npm&label=npm&color=DD3636&v=0.0.2
+[npm-version-img]: https://badgen.net/npm/v/header-range-parser?&icon=npm&label=npm&color=DD3636&v=0.0.3
 [npm-version-url]: https://npmjs.com/package/header-range-parser
-[npm-downloads-img]: https://badgen.net/npm/dt/header-range-parser?&icon=terminal&label=downloads&color=009688&v=0.0.2
+[npm-downloads-img]: https://badgen.net/npm/dt/header-range-parser?&icon=terminal&label=downloads&color=009688&v=0.0.3
 [npm-downloads-url]: https://npmjs.com/package/header-range-parser
-[gh-stars-img]: https://badgen.net/github/stars/r37r0m0d3l/header-range-parser?&icon=github&label=stars&color=FFCC33&v=0.0.2
+[gh-stars-img]: https://badgen.net/github/stars/r37r0m0d3l/header-range-parser?&icon=github&label=stars&color=FFCC33&v=0.0.3
 [gh-stars-url]: https://github.com/r37r0m0d3l/header-range-parser
 [node-image]: https://badgen.net/npm/node/header-range-parser
 [node-url]: https://nodejs.org/en/download
-[travis-img]: https://badgen.net/travis/r37r0m0d3l/header-range-parser?&icon=travis&label=build&v=0.0.2
+[travis-img]: https://badgen.net/travis/r37r0m0d3l/header-range-parser?&icon=travis&label=build&v=0.0.3
 [travis-url]: https://travis-ci.org/github/r37r0m0d3l/header-range-parser
 
-[ts-img]: https://badgen.net/npm/types/header-range-parser?&icon=typescript&label=types&color=1E90FF&v=0.0.2
+[ts-img]: https://badgen.net/npm/types/header-range-parser?&icon=typescript&label=types&color=1E90FF&v=0.0.3
 [ts-url]: https://github.com/r37r0m0d3l/header-range-parser/blob/master/dist/index.d.ts
-[sonarcloud-img]: https://sonarcloud.io/api/project_badges/measure?project=r37r0m0d3l_header-range-parser&metric=sqale_rating&v=0.0.2
+[sonarcloud-img]: https://sonarcloud.io/api/project_badges/measure?project=r37r0m0d3l_header-range-parser&metric=sqale_rating&v=0.0.3
 [sonarcloud-url]: https://sonarcloud.io/dashboard?id=r37r0m0d3l_header-range-parser
-[lgtm-img]: https://badgen.net/lgtm/grade/g/r37r0m0d3l/header-range-parser?&icon=lgtm&label=lgtm:js/ts&color=00C853&v=0.0.2
+[lgtm-img]: https://badgen.net/lgtm/grade/g/r37r0m0d3l/header-range-parser?&icon=lgtm&label=lgtm:js/ts&color=00C853&v=0.0.3
 [lgtm-url]: https://github.com/r37r0m0d3l/header-range-parser
 [codacy-img]: https://app.codacy.com/project/badge/Grade/b3458c991041406bbe85fdfd87498006
 [codacy-url]: https://www.codacy.com/gh/r37r0m0d3l/header-range-parser/dashboard?&utm_source=github.com&amp;utm_medium=referral&amp;utm_content=r37r0m0d3l/header-range-parser&amp;utm_campaign=Badge_Grade
