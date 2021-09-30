@@ -74,7 +74,7 @@
   "private": false,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/corefunc/v8.git"
+    "url": "git+https://github.com/r37r0m0d3l/header-range-parser.git"
   },
   "scripts": {
     "lint": "eslint --config .eslintrc.json \"./src/**/*.ts\"",
