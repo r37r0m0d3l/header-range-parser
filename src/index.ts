@@ -135,7 +135,7 @@ export function parseRange(size: number, header: string, options?: Options): Hea
       return ERROR_INVALID_ARGUMENT;
     }
   }
-  if (!(typeof header === "string")) {
+  if (typeof header !== "string") {
     if (throwError) {
       throw new TypeError(`Argument 'header' must be a string.`);
     } else {

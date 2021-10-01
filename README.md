@@ -1,25 +1,29 @@
 # Header • Range • Parser
 
+![Header • Range • Parser](https://raw.githubusercontent.com/header-range-parser/master/.github/assets/logo_200.webp?raw=true "Header • Range • Parser")
+
 Range header field parser. Fork of a̶b̶a̶n̶d̶o̶n̶e̶d̶ [range-parser](https://github.com/jshttp/range-parser). If you write to me with a request to change or update something, I will do it. Honestly 👼.
 
 [![NPM Version][npm-version-img]][npm-version-url]
 [![NPM Downloads][npm-downloads-img]][npm-downloads-url]
 [![GitHub Stars][gh-stars-img]][gh-stars-url]
 [![Node.js Version][node-image]][node-url]
+
+[![GitHub Checks][gh-checks-img]][gh-checks-url]
 [![Travis CI][travis-img]][travis-url]
 
 [![TypeScript Typings][ts-img]][ts-url]
 [![Maintainability Rating][sonarcloud-img]][sonarcloud-url]
 [![LGTM][lgtm-img]][lgtm-url]
 [![Codacy Badge][codacy-img]][codacy-url]
-[![Snyk][snyk-img]][snyk-url]
 
-Range header field parser.
+[![Snyk][snyk-img]][snyk-url]
+[![Dependabot][dependabot-img]][dependabot-url]
 
 ## Installation
 
 ```sh
-$ npm install header-range-parser
+npm install header-range-parser
 ```
 
 ## API
@@ -27,7 +31,12 @@ $ npm install header-range-parser
 <!-- eslint-disable no-unused-vars -->
 
 ```js
-const { parseRange } = require("header-range-parser");
+const {
+  ERROR_INVALID_ARGUMENT,
+  ERROR_STRING_IS_NOT_HEADER,
+  ERROR_UNSATISFIABLE_RESULT,
+  parseRange,
+} = require("header-range-parser");
 ```
 
 ```typescript
@@ -103,23 +112,29 @@ parseRange(
 <!-- Badges -->
 
 [npm-version-img]: https://badgen.net/npm/v/header-range-parser?&icon=npm&label=npm&color=DD3636&v=0.0.3
-[npm-version-url]: https://npmjs.com/package/header-range-parser
+[npm-version-url]: https://npmjs.com/package/header-range-parser&v0.0.3
 [npm-downloads-img]: https://badgen.net/npm/dt/header-range-parser?&icon=terminal&label=downloads&color=009688&v=0.0.3
 [npm-downloads-url]: https://npmjs.com/package/header-range-parser
 [gh-stars-img]: https://badgen.net/github/stars/r37r0m0d3l/header-range-parser?&icon=github&label=stars&color=FFCC33&v=0.0.3
 [gh-stars-url]: https://github.com/r37r0m0d3l/header-range-parser
 [node-image]: https://badgen.net/npm/node/header-range-parser
 [node-url]: https://nodejs.org/en/download
+
+[gh-checks-img]: https://badgen.net/github/checks/r37r0m0d3l/header-range-parser?&icon=github&v=0.0.3
+[gh-checks-url]: https://github.com/r37r0m0d3l/header-range-parser
 [travis-img]: https://badgen.net/travis/r37r0m0d3l/header-range-parser?&icon=travis&label=build&v=0.0.3
-[travis-url]: https://travis-ci.org/github/r37r0m0d3l/header-range-parser
+[travis-url]: https://travis-ci.com/github/r37r0m0d3l/header-range-parser
 
 [ts-img]: https://badgen.net/npm/types/header-range-parser?&icon=typescript&label=types&color=1E90FF&v=0.0.3
 [ts-url]: https://github.com/r37r0m0d3l/header-range-parser/blob/master/dist/index.d.ts
 [sonarcloud-img]: https://sonarcloud.io/api/project_badges/measure?project=r37r0m0d3l_header-range-parser&metric=sqale_rating&v=0.0.3
 [sonarcloud-url]: https://sonarcloud.io/dashboard?id=r37r0m0d3l_header-range-parser
 [lgtm-img]: https://badgen.net/lgtm/grade/g/r37r0m0d3l/header-range-parser?&icon=lgtm&label=lgtm:js/ts&color=00C853&v=0.0.3
-[lgtm-url]: https://github.com/r37r0m0d3l/header-range-parser
+[lgtm-url]: https://lgtm.com/projects/g/r37r0m0d3l/header-range-parser/context:javascript
 [codacy-img]: https://app.codacy.com/project/badge/Grade/b3458c991041406bbe85fdfd87498006
 [codacy-url]: https://www.codacy.com/gh/r37r0m0d3l/header-range-parser/dashboard?&utm_source=github.com&amp;utm_medium=referral&amp;utm_content=r37r0m0d3l/header-range-parser&amp;utm_campaign=Badge_Grade
-[snyk-img]: https://snyk.io/test/github/r37r0m0d3l/header-range-parser/badge.svg
+
+[snyk-img]: https://badgen.net/snyk/r37r0m0d3l/header-range-parser?&v=0.0.3
 [snyk-url]: https://github.com/r37r0m0d3l/header-range-parser
+[dependabot-img]: https://badgen.net/dependabot/r37r0m0d3l/header-range-parser?&icon=dependabot&v=0.0.3
+[dependabot-url]: https://github.com/r37r0m0d3l/header-range-parser

@@ -62,7 +62,7 @@ const buildOptions = {
   outdir: "./dist/",
   platform: "neutral",
   sourcemap: "external",
-  target: "node12.20",
+  target: "node12.20.0",
 };
 
 if ("minify" in args) {
@@ -94,7 +94,7 @@ async function cjs() {
 async function js() {
   return new Promise((resolve) => {
     esbuild
-      .build({ ...buildOptions, ...{ format: /*"iife"*/ "cjs", outExtension: { ".js": ".js" } } })
+      .build({ ...buildOptions, ...{ format: "esm", outExtension: { ".js": ".js" } } })
       .then(resolve)
       .catch(() => process.exit(3));
   });

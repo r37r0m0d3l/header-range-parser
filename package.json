@@ -11,21 +11,21 @@
   ],
   "description": "Range header field string parser.",
   "devDependencies": {
-    "@types/node": "16.7.10",
-    "@typescript-eslint/eslint-plugin": "4.30.0",
-    "@typescript-eslint/parser": "4.30.0",
-    "esbuild": "0.12.29",
-    "eslint": "7.32.0",
-    "eslint-config-prettier": "8.3.0",
-    "eslint-config-standard": "16.0.3",
-    "eslint-plugin-import": "2.24.2",
-    "eslint-plugin-jsdoc": "36.0.8",
-    "eslint-plugin-node": "11.1.0",
-    "eslint-plugin-prettier": "4.0.0",
-    "eslint-plugin-standard": "5.0.0",
-    "jest": "27.1.0",
-    "prettier": "2.3.2",
-    "typescript": "4.4.2"
+    "@types/node": "16.7.*",
+    "@typescript-eslint/eslint-plugin": "4.30.*",
+    "@typescript-eslint/parser": "4.30.*",
+    "esbuild": "0.12.*",
+    "eslint": "7.32.*",
+    "eslint-config-prettier": "8.3.*",
+    "eslint-config-standard": "16.0.*",
+    "eslint-plugin-import": "2.24.*",
+    "eslint-plugin-jsdoc": "36.0.*",
+    "eslint-plugin-node": "11.1.*",
+    "eslint-plugin-prettier": "4.0.*",
+    "eslint-plugin-standard": "5.0.*",
+    "jest": "27.1.*",
+    "prettier": "2.3.*",
+    "typescript": "4.4.*"
   },
   "directories": {
     "test": "test"
@@ -71,6 +71,7 @@
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "name": "header-range-parser",
+  "packageManager": "npm@6",
   "private": false,
   "readmeFilename": "README.md",
   "repository": {
@@ -88,5 +89,5 @@
   },
   "type": "module",
   "types": "dist/index.d.ts",
-  "version": "0.0.3"
+  "version": "0.0.4"
 }
