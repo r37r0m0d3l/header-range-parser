@@ -58,20 +58,26 @@ representation that is to be partitioned into sub-ranges. An array of sub-ranges
 will be returned or negative numbers indicating an error parsing.
 
 - `-1` or `ERROR_UNSATISFIABLE_RESULT` or ` esultUnsatisfiable` signals an unsatisfiable range
+
 - `-2` or `ERROR_STRING_IS_NOT_HEADER` or `ResultInvalid` signals a malformed header string
+
 - `-3` or `ERROR_INVALID_ARGUMENT` or `ResultWrongArgument` invalid parameters
 
 <!-- eslint-disable no-undef -->
 
 ```js
 // parse header from request
-const subRanges = parseRange(size, request.headers.range);
+const subRanges = parseRange(
+  size,
+  request.headers.range,
+);
 
 // the type of the subranges
 if (subRanges.type === "bytes") {
   // the ranges
   subRanges.forEach((range) => {
-    // do something with range.start and range.end
+    // do something with
+    // range.start and range.end
   });
 }
 ```
@@ -96,7 +102,10 @@ Throw or suppress errors. Defaults to `true`.
 parseRange(
   100,
   "bytes=50-55,0-10,5-10,56-60",
-  { combine: true, throwError: false });
+  {
+    combine: true,
+    throwError: false,
+  });
 // => [
 //      { start: 0,  end: 10 },
 //      { start: 50, end: 60 }
