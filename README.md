@@ -1,6 +1,6 @@
 # Header • Range • Parser
 
-![Header • Range • Parser](https://raw.githubusercontent.com/header-range-parser/master/.github/assets/logo_200.webp?raw=true "Header • Range • Parser")
+![Header • Range • Parser](https://raw.githubusercontent.com/r37r0m0d3l/header-range-parser/master/.github/assets/logo_200.webp?raw=true "Header • Range • Parser")
 
 Range header field parser. Fork of a̶b̶a̶n̶d̶o̶n̶e̶d̶ [range-parser](https://github.com/jshttp/range-parser). If you write to me with a request to change or update something, I will do it. Honestly 👼.
 
@@ -8,17 +8,17 @@ Range header field parser. Fork of a̶b̶a̶n̶d̶o̶n̶e̶d̶ [range-parser](ht
 [![NPM Downloads][npm-downloads-img]][npm-downloads-url]
 [![GitHub Stars][gh-stars-img]][gh-stars-url]
 [![Node.js Version][node-image]][node-url]
+[![TypeScript Typings][ts-img]][ts-url]
 
 [![GitHub Checks][gh-checks-img]][gh-checks-url]
 [![Travis CI][travis-img]][travis-url]
 
-[![TypeScript Typings][ts-img]][ts-url]
 [![Maintainability Rating][sonarcloud-img]][sonarcloud-url]
 [![LGTM][lgtm-img]][lgtm-url]
 [![Codacy Badge][codacy-img]][codacy-url]
-
 [![Snyk][snyk-img]][snyk-url]
-[![Dependabot][dependabot-img]][dependabot-url]
+
+[comment]: <> ([![Dependabot][dependabot-img]][dependabot-url])
 
 ## Installation
 
