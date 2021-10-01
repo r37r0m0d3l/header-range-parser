@@ -15,11 +15,11 @@ export interface Options {
    * and overlapping & adjacent ranges
    * will be combined into a single range.
    */
-  combine?: boolean | undefined;
+  combine?: boolean;
   /**
    * @description Throw or suppress errors.
    */
-  throwError?: boolean | undefined;
+  throwError?: boolean;
 }
 
 export type ResultUnsatisfiable = -1;
@@ -55,7 +55,7 @@ function combineRanges(ranges: HeaderRanges): HeaderRanges {
     }
   }
   ordered.length = order + 1;
-  const combined = ordered.sort(sortByRangeIndex).map(mapWithoutIndex) as HeaderRanges;
+  const combined = [...ordered].sort(sortByRangeIndex).map(mapWithoutIndex) as HeaderRanges;
   combined.type = ranges.type;
   return combined;
 }
@@ -115,6 +115,29 @@ export class HeaderRanges extends Array<Range> {
   }
 }
 
+function csvToRanges(csv: string[], size: number): HeaderRanges {
+  const ranges = new HeaderRanges();
+  for (const item of csv) {
+    const range = item.split("-");
+    let start = Number.parseInt(range[0], 10);
+    let end = Number.parseInt(range[1], 10);
+    if (Number.isNaN(start)) {
+      start = size - end;
+      end = size - 1;
+    } else if (Number.isNaN(end)) {
+      end = size - 1;
+    }
+    if (end > size - 1) {
+      end = size - 1;
+    }
+    if (Number.isNaN(start) || Number.isNaN(end) || start > end || start < 0) {
+      continue;
+    }
+    ranges.push({ end: end, start: start });
+  }
+  return ranges;
+}
+
 /**
  * @description Parse "Range" header `text` relative to the given file `size`.
  * @param {number} size - Size
@@ -142,33 +165,15 @@ export function parseRange(size: number, header: string, options?: Options): Hea
       return ERROR_INVALID_ARGUMENT;
     }
   }
-  const index = header.indexOf("=");
-  if (index === -1) {
+  const indexOfEqualSign = header.indexOf("=");
+  if (indexOfEqualSign === -1) {
     return ERROR_STRING_IS_NOT_HEADER;
   }
-  const strings = header.slice(index + 1).split(",");
-  const ranges = new HeaderRanges();
-  ranges.type = header.slice(0, index);
-  for (let index = 0; index < strings.length; index++) {
-    const range = strings[index].split("-");
-    let start = Number.parseInt(range[0], 10);
-    let end = Number.parseInt(range[1], 10);
-    if (Number.isNaN(start)) {
-      start = size - end;
-      end = size - 1;
-    } else if (Number.isNaN(end)) {
-      end = size - 1;
-    }
-    if (end > size - 1) {
-      end = size - 1;
-    }
-    if (Number.isNaN(start) || Number.isNaN(end) || start > end || start < 0) {
-      continue;
-    }
-    ranges.push({ end: end, start: start });
-  }
+  const csv = header.slice(indexOfEqualSign + 1).split(",");
+  const ranges = csvToRanges(csv, size);
   if (ranges.length < 1) {
     return ERROR_UNSATISFIABLE_RESULT;
   }
+  ranges.type = header.slice(0, indexOfEqualSign);
   return options && options.combine ? combineRanges(ranges) : ranges;
 }

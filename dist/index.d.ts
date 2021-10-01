@@ -13,11 +13,11 @@ export interface Options {
    * and overlapping & adjacent ranges
    * will be combined into a single range.
    */
-  combine?: boolean | undefined;
+  combine?: boolean;
   /**
    * @description Throw or suppress errors.
    */
-  throwError?: boolean | undefined;
+  throwError?: boolean;
 }
 export declare type ResultUnsatisfiable = -1;
 export declare type ResultInvalid = -2;

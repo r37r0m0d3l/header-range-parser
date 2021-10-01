@@ -79,7 +79,10 @@ async function mjs() {
     esbuild
       .build({ ...buildOptions, ...{ format: "esm", outExtension: { ".js": ".mjs" } } })
       .then(resolve)
-      .catch(() => process.exit(1));
+      .catch((error) => {
+        console.warn(error);
+        process.exit(1);
+      });
   });
 }
 
@@ -88,7 +91,10 @@ async function cjs() {
     esbuild
       .build({ ...buildOptions, ...{ format: "cjs", outExtension: { ".js": ".cjs" } } })
       .then(resolve)
-      .catch(() => process.exit(2));
+      .catch((error) => {
+        console.warn(error);
+        process.exit(2);
+      });
   });
 }
 async function js() {
@@ -96,7 +102,10 @@ async function js() {
     esbuild
       .build({ ...buildOptions, ...{ format: "esm", outExtension: { ".js": ".js" } } })
       .then(resolve)
-      .catch(() => process.exit(3));
+      .catch((error) => {
+        console.warn(error);
+        process.exit(3);
+      });
   });
 }
 
@@ -104,16 +113,20 @@ async function dts() {
   return new Promise((resolve) => {
     exec("node ./node_modules/typescript/lib/tsc --emitDeclarationOnly --outDir ./dist/", (error, stdout, stderr) => {
       if (error) {
+        console.warn(error);
         process.exit(4);
       }
       if (stderr) {
+        console.warn(stderr);
         process.exit(5);
       }
       exec("node ./node_modules/prettier/bin-prettier.js --write ./dist/index.d.ts", (error, stdout, stderr) => {
         if (error) {
+          console.warn(error);
           process.exit(6);
         }
         if (stderr) {
+          console.warn(stderr);
           process.exit(7);
         }
         resolve();
@@ -126,6 +139,7 @@ Promise.all([mjs(), cjs(), js(), dts()])
   .then(() => {
     process.exit(0);
   })
-  .catch(() => {
+  .catch((error) => {
+    console.warn(error);
     process.exit(8);
   });
