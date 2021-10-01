@@ -172,11 +172,3 @@ export function parseRange(size: number, header: string, options?: Options): Hea
   }
   return options && options.combine ? combineRanges(ranges) : ranges;
 }
-
-// const headerRanges = new HeaderRanges();
-// console.dir(headerRanges);
-// headerRanges.type = "no";
-// headerRanges.push({ end: 12345, start: 98765 });
-// console.dir(headerRanges);
-// console.dir(headerRanges.toArray());
-// console.dir(Array.from(headerRanges));
