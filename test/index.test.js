@@ -4,13 +4,13 @@ const {
   ERROR_INVALID_ARGUMENT,
   ERROR_STRING_IS_NOT_HEADER,
   ERROR_UNSATISFIABLE_RESULT,
-  HeaderRanges,
+  Ranges,
   parseRange,
 } = require("../dist/index.cjs");
 
 describe(`parseRange(size, header)`, function () {
-  it(`Should create empty "HeaderRanges"`, function () {
-    const headerRanges = new HeaderRanges();
+  it(`Should create empty "Ranges"`, function () {
+    const headerRanges = new Ranges();
     expect(headerRanges.length).toEqual(0);
     expect(headerRanges.type).toEqual("");
   });

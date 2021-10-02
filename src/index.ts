@@ -1,4 +1,4 @@
-export interface RangeWithIndex {
+interface RangeWithIndex {
   end: number;
   index: number;
   start: number;
@@ -38,10 +38,10 @@ export const ERROR_UNSATISFIABLE_RESULT: ResultUnsatisfiable = -1 as const;
 
 /**
  * @description Combine overlapping & adjacent ranges.
- * @param {HeaderRanges} ranges
- * @returns {HeaderRanges}
+ * @param {Ranges} ranges
+ * @returns {Ranges}
  */
-function combineRanges(ranges: HeaderRanges): HeaderRanges {
+function combineRanges(ranges: Ranges): Ranges {
   const ordered = ranges.map(mapWithIndex).sort(sortByRangeStart);
   let order = 0;
   for (let index = 1; index < ordered.length; index++) {
@@ -55,7 +55,7 @@ function combineRanges(ranges: HeaderRanges): HeaderRanges {
     }
   }
   ordered.length = order + 1;
-  const combined = [...ordered].sort(sortByRangeIndex).map(mapWithoutIndex) as HeaderRanges;
+  const combined = [...ordered].sort(sortByRangeIndex).map(mapWithoutIndex) as Ranges;
   combined.type = ranges.type;
   return combined;
 }
@@ -99,7 +99,7 @@ function sortByRangeStart(alpha: Range, beta: Range): number {
   return alpha.start - beta.start;
 }
 
-export class HeaderRanges extends Array<Range> {
+export class Ranges extends Array<Range> {
   /**
    * @description Header name or type
    */
@@ -109,14 +109,14 @@ export class HeaderRanges extends Array<Range> {
    * @returns {Array<Range>}
    */
   public toArray(): Array<Range> {
-    const array = Array.from(this) as HeaderRanges;
+    const array = Array.from(this) as Ranges;
     array.type = this.type;
     return array;
   }
 }
 
-function csvToRanges(csv: string[], size: number): HeaderRanges {
-  const ranges = new HeaderRanges();
+function csvToRanges(csv: string[], size: number): Ranges {
+  const ranges = new Ranges();
   for (const item of csv) {
     const range = item.split("-");
     let start = Number.parseInt(range[0], 10);
@@ -143,10 +143,10 @@ function csvToRanges(csv: string[], size: number): HeaderRanges {
  * @param {number} size - Size
  * @param {string} header - Header string
  * @param {Options=} options - Options
- * @returns {HeaderRanges | Result}
+ * @returns {Ranges | Result}
  * @throws {TypeError}
  */
-export function parseRange(size: number, header: string, options?: Options): HeaderRanges | Result {
+export function parseRange(size: number, header: string, options?: Options): Ranges | Result {
   let throwError = true;
   if (options && "throwError" in options && options.throwError === false) {
     throwError = false;

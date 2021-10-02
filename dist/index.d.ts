@@ -1,8 +1,3 @@
-export interface RangeWithIndex {
-  end: number;
-  index: number;
-  start: number;
-}
 export interface Range {
   end: number;
   start: number;
@@ -26,7 +21,7 @@ export declare type Result = ResultInvalid | ResultUnsatisfiable | ResultWrongAr
 export declare const ERROR_INVALID_ARGUMENT: ResultWrongArgument;
 export declare const ERROR_STRING_IS_NOT_HEADER: ResultInvalid;
 export declare const ERROR_UNSATISFIABLE_RESULT: ResultUnsatisfiable;
-export declare class HeaderRanges extends Array<Range> {
+export declare class Ranges extends Array<Range> {
   /**
    * @description Header name or type
    */
@@ -42,7 +37,7 @@ export declare class HeaderRanges extends Array<Range> {
  * @param {number} size - Size
  * @param {string} header - Header string
  * @param {Options=} options - Options
- * @returns {HeaderRanges | Result}
+ * @returns {Ranges | Result}
  * @throws {TypeError}
  */
-export declare function parseRange(size: number, header: string, options?: Options): HeaderRanges | Result;
+export declare function parseRange(size: number, header: string, options?: Options): Ranges | Result;

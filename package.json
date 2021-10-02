@@ -36,16 +36,17 @@
   "exports": {
     ".": {
       "browser": {
-        "import": "./dist/index.mjs",
+        "import": "./dist/index.js",
         "require": "./dist/index.cjs"
       },
       "node": {
-        "import": "./dist/index.mjs",
+        "import": "./dist/index.js",
         "require": "./dist/index.cjs"
       },
-      "import": "./dist/index.mjs",
+      "import": "./dist/index.js",
       "require": "./dist/index.cjs",
-      "default": "./dist/index.js"
+      "default": "./dist/index.js",
+      "types": "./dist/index.d.ts"
     }
   },
   "files": [
@@ -53,9 +54,7 @@
     "dist/index.cjs.map",
     "dist/index.d.ts",
     "dist/index.js",
-    "dist/index.js.map",
-    "dist/index.mjs",
-    "dist/index.mjs.map"
+    "dist/index.js.map"
   ],
   "homepage": "https://github.com/r37r0m0d3l/header-range-parser",
   "jest": {
@@ -69,7 +68,7 @@
   ],
   "license": "MIT",
   "main": "dist/index.cjs",
-  "module": "dist/index.mjs",
+  "module": "dist/index.js",
   "name": "header-range-parser",
   "packageManager": "npm@6",
   "private": false,
@@ -89,5 +88,5 @@
   },
   "type": "module",
   "types": "dist/index.d.ts",
-  "version": "0.0.6"
+  "version": "0.0.7"
 }
