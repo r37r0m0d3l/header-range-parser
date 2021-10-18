@@ -23,7 +23,7 @@ Range header field parser. Fork of a̶b̶a̶n̶d̶o̶n̶e̶d̶ [range-parser](ht
 
 ## Installation
 
-```sh
+```bash
 npm install header-range-parser
 ```
 
@@ -53,6 +53,22 @@ import {
 ```
 
 ### parseRange(size, header, options)
+
+```typescript
+import {
+  Result, Ranges, parseRange, Options,
+} from "header-range-parser";
+
+declare function parseRange(
+  size: number, header: string, options?: Options,
+): Ranges | Result;
+```
+
+| Parameter | Type      | Description                                           |
+| :-------- | :---------| :---------------------------------------------------- |
+| `size`    | `number`  | **Required**. Size in bytes.                          |
+| `header`  | `string`  | **Required**. String containing header.               |
+| `options` | `object`  | Optional options: combine (bool), throwError (bool).  |
 
 Parse the given `header` string where `size` is the size of the selected
 representation that is to be partitioned into sub-ranges. An array of sub-ranges
