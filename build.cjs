@@ -62,7 +62,7 @@ const buildOptions = {
   outdir: "./dist/",
   platform: "neutral",
   sourcemap: "external",
-  target: "node12.20.0",
+  target: "node12.22.0",
 };
 
 if ("minify" in args) {
