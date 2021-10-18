@@ -1,3 +1,9 @@
+# [1.1.1] (2021-10-19)
+
+### Documentation
+
+* 📚 Documentation updated
+
 # [1.1.0] (2021-10-19)
 
 ### Breaking Changes

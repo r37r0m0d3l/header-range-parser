@@ -143,7 +143,7 @@ function csvToRanges(csv: string[], size: number): Ranges {
  * @param {number} size - Size
  * @param {string} header - Header string
  * @param {Options=} options - Options
- * @returns {Ranges | Result}
+ * @returns {Ranges|Result}
  * @throws {TypeError}
  */
 export function parseRange(size: number, header: string, options?: Options): Ranges | Result {

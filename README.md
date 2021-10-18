@@ -138,41 +138,41 @@ parseRange(
 
 <!-- Badges -->
 
-[npm-version-img]: https://badgen.net/npm/v/header-range-parser?&icon=npm&label=npm&color=DD3636&v=1.0.0
+[npm-version-img]: https://badgen.net/npm/v/header-range-parser?&icon=npm&label=npm&color=DD3636&v=1.1.1
 [npm-version-url]: https://npmjs.com/package/header-range-parser
 
-[npm-downloads-img]: https://badgen.net/npm/dt/header-range-parser?&icon=terminal&label=downloads&color=009688&v=1.0.0
+[npm-downloads-img]: https://badgen.net/npm/dt/header-range-parser?&icon=terminal&label=downloads&color=009688&v=1.1.1
 [npm-downloads-url]: https://npmjs.com/package/header-range-parser
 
-[gh-stars-img]: https://badgen.net/github/stars/r37r0m0d3l/header-range-parser?&icon=github&label=stars&color=FFCC33&v=1.0.0
+[gh-stars-img]: https://badgen.net/github/stars/r37r0m0d3l/header-range-parser?&icon=github&label=stars&color=FFCC33&v=1.1.1
 [gh-stars-url]: https://github.com/r37r0m0d3l/header-range-parser
 
 [node-image]: https://badgen.net/npm/node/header-range-parser
 [node-url]: https://nodejs.org/en/download
 
-[gh-checks-img]: https://badgen.net/github/checks/r37r0m0d3l/header-range-parser?&icon=github&v=1.0.0
+[gh-checks-img]: https://badgen.net/github/checks/r37r0m0d3l/header-range-parser?&icon=github&v=1.1.1
 [gh-checks-url]: https://github.com/r37r0m0d3l/header-range-parser
 
-[travis-img]: https://badgen.net/travis/r37r0m0d3l/header-range-parser?&icon=travis&label=build&v=1.0.0
+[travis-img]: https://badgen.net/travis/r37r0m0d3l/header-range-parser?&icon=travis&label=build&v=1.1.1
 [travis-url]: https://travis-ci.com/github/r37r0m0d3l/header-range-parser
 
-[ts-img]: https://badgen.net/npm/types/header-range-parser?&icon=typescript&label=types&color=1E90FF&v=1.0.0
+[ts-img]: https://badgen.net/npm/types/header-range-parser?&icon=typescript&label=types&color=1E90FF&v=1.1.1
 [ts-url]: https://github.com/r37r0m0d3l/header-range-parser/blob/main/dist/index.d.ts
 
-[sonarcloud-img]: https://sonarcloud.io/api/project_badges/measure?project=r37r0m0d3l_header-range-parser&metric=sqale_rating&v=1.0.0
+[sonarcloud-img]: https://sonarcloud.io/api/project_badges/measure?project=r37r0m0d3l_header-range-parser&metric=sqale_rating&v=1.1.1
 [sonarcloud-url]: https://sonarcloud.io/dashboard?id=r37r0m0d3l_header-range-parser
 
-[lgtm-img]: https://badgen.net/lgtm/grade/g/r37r0m0d3l/header-range-parser?&icon=lgtm&label=lgtm:js/ts&color=00C853&v=1.0.0
+[lgtm-img]: https://badgen.net/lgtm/grade/g/r37r0m0d3l/header-range-parser?&icon=lgtm&label=lgtm:js/ts&color=00C853&v=1.1.1
 [lgtm-url]: https://lgtm.com/projects/g/r37r0m0d3l/header-range-parser/context:javascript
 
 [codacy-img]: https://app.codacy.com/project/badge/Grade/b3458c991041406bbe85fdfd87498006
 [codacy-url]: https://www.codacy.com/gh/r37r0m0d3l/header-range-parser/dashboard?&utm_source=github.com&amp;utm_medium=referral&amp;utm_content=r37r0m0d3l/header-range-parser&amp;utm_campaign=Badge_Grade
 
-[snyk-img]: https://badgen.net/snyk/r37r0m0d3l/header-range-parser?&v=1.0.0
+[snyk-img]: https://badgen.net/snyk/r37r0m0d3l/header-range-parser?&v=1.1.1
 [snyk-url]: https://github.com/r37r0m0d3l/header-range-parser
 
-[dependabot-img]: https://badgen.net/dependabot/r37r0m0d3l/header-range-parser?&icon=dependabot&v=1.0.0
+[dependabot-img]: https://badgen.net/dependabot/r37r0m0d3l/header-range-parser?&icon=dependabot&v=1.1.1
 [dependabot-url]: https://github.com/r37r0m0d3l/header-range-parser
 
-[codefactor-img]: https://www.codefactor.io/repository/github/r37r0m0d3l/header-range-parser/badge?&style=flat-square&v=1.0.0
+[codefactor-img]: https://www.codefactor.io/repository/github/r37r0m0d3l/header-range-parser/badge?&style=flat-square&v=1.1.1
 [codefactor-url]: https://www.codefactor.io/repository/github/r37r0m0d3l/header-range-parser

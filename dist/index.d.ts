@@ -37,7 +37,7 @@ export declare class Ranges extends Array<Range> {
  * @param {number} size - Size
  * @param {string} header - Header string
  * @param {Options=} options - Options
- * @returns {Ranges | Result}
+ * @returns {Ranges|Result}
  * @throws {TypeError}
  */
 export declare function parseRange(size: number, header: string, options?: Options): Ranges | Result;
