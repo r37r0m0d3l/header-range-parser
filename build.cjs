@@ -1,6 +1,7 @@
-const { exec } = require("child_process");
-
 const esbuild = require("esbuild");
+const { Generator } = require("npm-dts");
+
+const { dependencies, peerDependencies } = require("./package.json");
 
 const args = new Object(null);
 
@@ -58,6 +59,7 @@ process.argv
 const buildOptions = {
   bundle: true,
   entryPoints: ["./src/index.ts"],
+  external: Object.keys(dependencies || {}).concat(Object.keys(peerDependencies || {})),
   minify: true,
   outdir: "./dist/",
   platform: "neutral",
@@ -78,7 +80,10 @@ async function mjs() {
   return new Promise((resolve) => {
     esbuild
       .build({ ...buildOptions, ...{ format: "esm", outExtension: { ".js": ".js" } } })
-      .then(resolve)
+      .then(() => {
+        console.log("   🟣 ESM build completed             ✔️");
+        resolve();
+      })
       .catch((error) => {
         console.warn(error);
         process.exit(1);
@@ -90,7 +95,10 @@ async function cjs() {
   return new Promise((resolve) => {
     esbuild
       .build({ ...buildOptions, ...{ format: "cjs", outExtension: { ".js": ".cjs" } } })
-      .then(resolve)
+      .then(() => {
+        console.log("   🟢 CommonJS build completed        ✔️");
+        resolve();
+      })
       .catch((error) => {
         console.warn(error);
         process.exit(2);
@@ -100,35 +108,36 @@ async function cjs() {
 
 async function dts() {
   return new Promise((resolve) => {
-    exec("node ./node_modules/typescript/lib/tsc --emitDeclarationOnly --outDir ./dist/", (error, stdout, stderr) => {
-      if (error) {
+    new Generator({
+      entry: "./src/index.ts",
+      output: "./dist/index.d.ts",
+    })
+      .generate()
+      .then(() => {
+        console.log("   🔵 TS declarations build completed ✔️");
+        resolve();
+      })
+      .catch((error) => {
         console.warn(error);
         process.exit(3);
-      }
-      if (stderr) {
-        console.warn(stderr);
-        process.exit(4);
-      }
-      exec("node ./node_modules/prettier/bin-prettier.js --write ./dist/index.d.ts", (error, stdout, stderr) => {
-        if (error) {
-          console.warn(error);
-          process.exit(5);
-        }
-        if (stderr) {
-          console.warn(stderr);
-          process.exit(6);
-        }
-        resolve();
       });
-    });
   });
 }
 
-Promise.all([mjs(), cjs(), dts()])
+async function start() {
+  return new Promise((resolve) => {
+    console.clear();
+    console.log("🏁 Build started…");
+    resolve();
+  });
+}
+
+Promise.all([start(), mjs(), cjs(), dts()])
   .then(() => {
+    console.log("✅ Build completed");
     process.exit(0);
   })
   .catch((error) => {
     console.warn(error);
-    process.exit(7);
+    process.exit(4);
   });
