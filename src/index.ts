@@ -66,7 +66,7 @@ function combineRanges(ranges: Ranges): Ranges {
  * @param {number} index
  * @returns {RangeWithIndex}
  */
-function mapWithIndex(range: RangeWithIndex, index: number): RangeWithIndex {
+function mapWithIndex(range: Range | RangeWithIndex, index: number): RangeWithIndex {
   return { end: range.end, index, start: range.start };
 }
 
