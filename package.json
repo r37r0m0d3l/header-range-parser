@@ -11,7 +11,7 @@
   ],
   "description": "Range header field string parser.",
   "devDependencies": {
-    "@types/node": "17.0.4",
+    "@types/node": "18.14.4",
     "@typescript-eslint/eslint-plugin": "5.8.0",
     "@typescript-eslint/parser": "5.8.0",
     "esbuild": "0.14.8",
