@@ -74,7 +74,7 @@ Parse the given `header` string where `size` is the size of the selected
 representation that is to be partitioned into sub-ranges. An array of sub-ranges
 will be returned or negative numbers indicating an error parsing.
 
-- `-1` or `ERROR_UNSATISFIABLE_RESULT` or ` esultUnsatisfiable` signals an unsatisfiable range
+- `-1` or `ERROR_UNSATISFIABLE_RESULT` or `ResultUnsatisfiable` signals an unsatisfiable range
 
 - `-2` or `ERROR_STRING_IS_NOT_HEADER` or `ResultInvalid` signals a malformed header string
 
