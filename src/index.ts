@@ -115,26 +115,61 @@ export class Ranges extends Array<Range> {
   }
 }
 
-function csvToRanges(csv: string[], size: number): Ranges {
+/**
+ * @description Parse string to integer.
+ * @param {string} str
+ * @returns {number}
+ */
+function parsePos(str: string): number {
+  if (/^\d+$/.test(str)) {
+    return Number(str);
+  }
+  return NaN;
+}
+
+function csvToRanges(csv: string[], size: number): Ranges | Result {
   const ranges = new Ranges();
+  let unsatisfiable = false;
+
   for (const item of csv) {
-    const range = item.split("-");
-    let start = Number.parseInt(range[0], 10);
-    let end = Number.parseInt(range[1], 10);
-    if (Number.isNaN(start)) {
+    const indexOf = item.indexOf("-");
+    if (indexOf === -1) {
+      continue;
+    }
+
+    const startStr = item.slice(0, indexOf).trim();
+    const endStr = item.slice(indexOf + 1).trim();
+
+    let start = parsePos(startStr);
+    let end = parsePos(endStr);
+
+    if (startStr.length === 0) {
       start = size - end;
       end = size - 1;
-    } else if (Number.isNaN(end)) {
+    } else if (endStr.length === 0) {
       end = size - 1;
     }
+
     if (end > size - 1) {
       end = size - 1;
     }
-    if (Number.isNaN(start) || Number.isNaN(end) || start > end || start < 0) {
+
+    if (Number.isNaN(start) || Number.isNaN(end)) {
       continue;
     }
+
+    if (start > end || start < 0) {
+      unsatisfiable = true;
+      continue;
+    }
+
     ranges.push({ end: end, start: start });
   }
+
+  if (ranges.length < 1) {
+    return unsatisfiable ? ERROR_UNSATISFIABLE_RESULT : ERROR_STRING_IS_NOT_HEADER;
+  }
+
   return ranges;
 }
 
@@ -171,8 +206,8 @@ export function parseRange(size: number, header: string, options?: Options): Ran
   }
   const csv = header.slice(indexOfEqualSign + 1).split(",");
   const ranges = csvToRanges(csv, size);
-  if (ranges.length < 1) {
-    return ERROR_UNSATISFIABLE_RESULT;
+  if (typeof ranges === "number") {
+    return ranges;
   }
   ranges.type = header.slice(0, indexOfEqualSign);
   return options && options.combine ? combineRanges(ranges) : ranges;

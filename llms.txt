@@ -1,0 +1,56 @@
+# header-range-parser
+
+> HTTP Range header field string parser for Node.js and TypeScript.
+
+This library is a high-performance, lightweight fork of the original `range-parser`, optimized for modern environments. It parses the `Range` header string into a structured object, handling multiple ranges, overlapping sub-ranges, and unsatisfiable requests.
+
+## Docs
+
+- [README](https://github.com/r37r0m0d3l/header-range-parser/blob/master/README.md): Full usage guide, feature overview, and API details.
+- [Changelog](https://github.com/r37r0m0d3l/header-range-parser/blob/master/CHANGELOG.md): History of changes and version updates.
+- [License](https://github.com/r37r0m0d3l/header-range-parser/blob/master/LICENSE): MIT License details.
+
+## API
+
+- [parseRange](https://github.com/r37r0m0d3l/header-range-parser/blob/master/src/index.ts): Main function to parse a range header string.
+  - `size`: The total size of the resource in bytes.
+  - `header`: The raw `Range` header string (e.g., `bytes=0-499`).
+  - `options`: Optional configuration for combining ranges or throwing errors.
+- [Ranges](https://github.com/r37r0m0d3l/header-range-parser/blob/master/src/index.ts): Custom Array subclass containing parsed range objects `{ start, end }` and a `type` property.
+- [Options](https://github.com/r37r0m0d3l/header-range-parser/blob/master/src/index.ts): Configuration interface for `parseRange`.
+  - `combine`: Boolean to merge overlapping/adjacent ranges.
+  - `throwError`: Boolean to toggle between throwing TypeErrors or returning error codes.
+- [Error Codes](https://github.com/r37r0m0d3l/header-range-parser/blob/master/src/index.ts): Constants returned when `throwError` is false.
+  - `ERROR_UNSATISFIABLE_RESULT` (-1): Range is outside resource bounds.
+  - `ERROR_STRING_IS_NOT_HEADER` (-2): Malformed header string.
+  - `ERROR_INVALID_ARGUMENT` (-3): Invalid input parameters.
+
+## Examples
+
+### Basic Usage
+```typescript
+import { parseRange } from 'header-range-parser';
+
+const size = 1000;
+const header = 'bytes=0-499';
+const ranges = parseRange(size, header);
+
+if (ranges.type === 'bytes') {
+  ranges.forEach(range => {
+    console.log(range.start, range.end);
+  });
+}
+```
+
+### Combining Overlapping Ranges
+```typescript
+const options = { combine: true };
+const ranges = parseRange(100, 'bytes=50-55,0-10,5-10,56-60', options);
+// Result: [{ start: 0, end: 10 }, { start: 50, end: 60 }]
+```
+
+## Optional
+
+- [Contributing](https://github.com/r37r0m0d3l/header-range-parser/issues): Bug reports and feature requests.
+- [NPM](https://github.com/r37r0m0d3l/header-range-parser/): Package distribution and version history (refer to NPM).
+- [Repository](https://github.com/r37r0m0d3l/header-range-parser): Source code and development.

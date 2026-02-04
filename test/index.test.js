@@ -42,11 +42,74 @@ describe(`parseRange(size, header)`, function () {
     assert.strictEqual(parseRange(200, "malformed"), ERROR_STRING_IS_NOT_HEADER);
   });
 
+  it('should return -2 for completely empty header', function () {
+    assert.strictEqual(parseRange(200, ''), ERROR_STRING_IS_NOT_HEADER)
+  })
+
+  it('should return -2 for range missing dash', function () {
+    assert.strictEqual(parseRange(200, 'bytes=100200'), ERROR_STRING_IS_NOT_HEADER)
+    assert.strictEqual(parseRange(200, 'bytes=,100200'), ERROR_STRING_IS_NOT_HEADER)
+  })
+
+  it(`should return -2 for invalid start byte position`, function () {
+    assert.strictEqual(parseRange(200, "bytes=x-100"), ERROR_STRING_IS_NOT_HEADER);
+  });
+
+  it(`should return -2 for invalid end byte position`, function () {
+    assert.strictEqual(parseRange(200, "bytes=100-x"), ERROR_STRING_IS_NOT_HEADER);
+  });
+
+  it("should return -2 for invalid range format", function () {
+    assert.strictEqual(parseRange(200, "bytes=--100"), ERROR_STRING_IS_NOT_HEADER);
+    assert.strictEqual(parseRange(200, "bytes=100--200"), ERROR_STRING_IS_NOT_HEADER);
+    assert.strictEqual(parseRange(200, "bytes=-"), ERROR_STRING_IS_NOT_HEADER);
+    assert.strictEqual(parseRange(200, "bytes= - "), ERROR_STRING_IS_NOT_HEADER);
+  });
+
+  it('should return -2 for empty range value', function () {
+    assert.strictEqual(parseRange(200, 'bytes='), ERROR_STRING_IS_NOT_HEADER)
+    assert.strictEqual(parseRange(200, 'bytes=,'), ERROR_STRING_IS_NOT_HEADER)
+    assert.strictEqual(parseRange(200, 'bytes= , , '), ERROR_STRING_IS_NOT_HEADER)
+  })
+
+  it("should return -2 with multiple dashes in range", function () {
+    assert.strictEqual(parseRange(200, "bytes=100-200-300"), ERROR_STRING_IS_NOT_HEADER);
+  });
+
+  it("should return -2 for negative start byte position", function () {
+    assert.strictEqual(parseRange(200, "bytes=-100-150"), ERROR_STRING_IS_NOT_HEADER);
+  });
+
+  it("should return -2 for invalid number format", function () {
+    assert.strictEqual(parseRange(200, "bytes=01a-150"), ERROR_STRING_IS_NOT_HEADER);
+    assert.strictEqual(parseRange(200, "bytes=100-15b0"), ERROR_STRING_IS_NOT_HEADER);
+  });
+
+  it('should return -2 when all multiple ranges have invalid format', function () {
+    assert.strictEqual(parseRange(200, 'bytes=y-v,x-'), ERROR_STRING_IS_NOT_HEADER)
+    assert.strictEqual(parseRange(200, 'bytes=abc-def,ghi-jkl'), ERROR_STRING_IS_NOT_HEADER)
+    assert.strictEqual(parseRange(200, 'bytes=x-,y-,z-'), ERROR_STRING_IS_NOT_HEADER)
+  })
+
+  it("should return -1 for unsatisfiable range", function () {
+    assert.strictEqual(parseRange(200, "bytes=500-600"), ERROR_UNSATISFIABLE_RESULT);
+  });
+
+  it("should return -1 for unsatisfiable range with multiple ranges", function () {
+    assert.strictEqual(parseRange(200, "bytes=500-600,601-700"), ERROR_UNSATISFIABLE_RESULT);
+  });
+
   it(`Should return -1 "ERROR_UNSATISFIABLE_RESULT" if all specified ranges are invalid`, function () {
     assert.strictEqual(parseRange(200, "bytes=500-20"), ERROR_UNSATISFIABLE_RESULT);
     assert.strictEqual(parseRange(200, "bytes=500-999"), ERROR_UNSATISFIABLE_RESULT);
     assert.strictEqual(parseRange(200, "bytes=500-999,1000-1499"), ERROR_UNSATISFIABLE_RESULT);
   });
+
+  it('should return -1 for mixed invalid and unsatisfiable ranges', function () {
+    assert.strictEqual(parseRange(200, 'bytes=abc-def,500-999'), ERROR_UNSATISFIABLE_RESULT)
+    assert.strictEqual(parseRange(200, 'bytes=500-999,xyz-uvw'), ERROR_UNSATISFIABLE_RESULT)
+    assert.strictEqual(parseRange(200, 'bytes=abc-def,500-999,xyz-uvw'), ERROR_UNSATISFIABLE_RESULT)
+  })
 
   it(`Should parse "header"`, function () {
     const range = parseRange(1000, "bytes=0-499");
@@ -113,8 +176,39 @@ describe(`parseRange(size, header)`, function () {
     expect(range[0]).toStrictEqual({ start: 999, end: 999 });
   });
 
+  it('should ignore invalid format range when valid range exists', function () {
+    const range = parseRange(1000, 'bytes=100-200,x-')
+    assert.strictEqual(range.type, 'bytes')
+    assert.strictEqual(range.length, 1)
+    expect(range[0]).toStrictEqual({ start: 100, end: 200 })
+  })
+
+  it('should ignore invalid format ranges when some are valid', function () {
+    const range = parseRange(1000, 'bytes=x-,0-100,y-')
+    assert.strictEqual(range.type, 'bytes')
+    assert.strictEqual(range.length, 1)
+    expect(range[0]).toStrictEqual({ start: 0, end: 100 })
+  })
+
+  it('should ignore invalid format ranges at different positions', function () {
+    const range = parseRange(1000, 'bytes=0-50,abc-def,100-150')
+    assert.strictEqual(range.type, 'bytes')
+    assert.strictEqual(range.length, 2)
+    expect(range[0]).toStrictEqual({ start: 0, end: 50 })
+    expect(range[1]).toStrictEqual({ start: 100, end: 150 })
+  })
+
   it(`Should parse "header" with multiple ranges`, function () {
     const range = parseRange(1000, "bytes=40-80,81-90,-1");
+    assert.strictEqual(range.type, "bytes");
+    assert.strictEqual(range.length, 3);
+    expect(range[0]).toStrictEqual({ start: 40, end: 80 });
+    expect(range[1]).toStrictEqual({ start: 81, end: 90 });
+    expect(range[2]).toStrictEqual({ start: 999, end: 999 });
+  });
+
+  it("should parse header with whitespace", function () {
+    const range = parseRange(1000, "bytes=   40-80 , 81-90 , -1 ");
     assert.strictEqual(range.type, "bytes");
     assert.strictEqual(range.length, 3);
     expect(range[0]).toStrictEqual({ start: 40, end: 80 });
@@ -156,4 +250,11 @@ describe(`parseRange(size, header)`, function () {
       expect(range[2]).toStrictEqual({ start: 0, end: 1 });
     });
   });
+
+  it('should ignore whitespace-only invalid ranges when valid present', function () {
+    const range = parseRange(1000, 'bytes= , 0-10')
+    assert.strictEqual(range.type, 'bytes')
+    assert.strictEqual(range.length, 1)
+    expect(range[0]).toStrictEqual({ start: 0, end: 10 })
+  })
 });

@@ -1,3 +1,14 @@
+# [1.1.5]
+
+### Fix
+
+* 🐛 Improve range parsing logic to better handle whitespace and invalid formats.
+* 🐛 Improved error reporting for unsatisfiable and invalid ranges.
+
+### Minor
+
+* 🔨 Update configuration files.
+
 # [1.1.4]
 
 ### Minor
