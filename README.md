@@ -26,17 +26,19 @@ Range header field parser. Fork of  a̶b̶a̶n̶d̶o̶n̶e̶d̶ [range-parser](h
 npm install header-range-parser
 ```
 
+The package ships a single ESM file build. On Node.js 20.19+, CommonJS callers can keep using `require()`.
+
 ## API
 
 <!-- eslint-disable no-unused-vars -->
 
 ```js
-const {
+import {
   ERROR_INVALID_ARGUMENT,
   ERROR_STRING_IS_NOT_HEADER,
   ERROR_UNSATISFIABLE_RESULT,
   parseRange,
-} = require("header-range-parser");
+} from "header-range-parser";
 ```
 
 ```typescript

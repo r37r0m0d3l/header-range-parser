@@ -1,7 +1,12 @@
-const esbuild = require("esbuild");
-const { Generator } = require("npm-dts");
+import esbuild from "esbuild";
+import { execFile } from "node:child_process";
+import { createRequire } from "node:module";
+import { promisify } from "node:util";
 
+const require = createRequire(import.meta.url);
 const { dependencies, peerDependencies } = require("./package.json");
+const execFileAsync = promisify(execFile);
+const tscBin = require.resolve("typescript/bin/tsc");
 
 const args = new Object(null);
 
@@ -64,7 +69,7 @@ const buildOptions = {
   outdir: "./dist/",
   platform: "neutral",
   sourcemap: "external",
-  target: "node12.22.0",
+  target: "node20.0.0",
 };
 
 if ("minify" in args) {
@@ -76,12 +81,12 @@ if ("minify" in args) {
   }
 }
 
-async function mjs() {
+async function esm() {
   return new Promise((resolve) => {
     esbuild
-      .build({ ...buildOptions, ...{ format: "esm", outExtension: { ".js": ".js" } } })
+      .build(Object.assign({}, buildOptions, { format: "esm", outExtension: { ".js": ".js" } }))
       .then(() => {
-        console.log("   🟣 ESM build completed             ✔️");
+        console.log("    Public ESM build completed             ✔️");
         resolve();
       })
       .catch((error) => {
@@ -91,37 +96,25 @@ async function mjs() {
   });
 }
 
-async function cjs() {
-  return new Promise((resolve) => {
-    esbuild
-      .build({ ...buildOptions, ...{ format: "cjs", outExtension: { ".js": ".cjs" } } })
-      .then(() => {
-        console.log("   🟢 CommonJS build completed        ✔️");
-        resolve();
-      })
-      .catch((error) => {
-        console.warn(error);
-        process.exit(2);
-      });
-  });
-}
-
 async function dts() {
-  return new Promise((resolve) => {
-    new Generator({
-      entry: "./src/index.ts",
-      output: "./dist/index.d.ts",
+  return execFileAsync(process.execPath, [
+    tscBin,
+    "--project",
+    "./tsconfig.json",
+    "--outDir",
+    "./dist",
+    "--module",
+    "esnext",
+    "--removeComments",
+    "false",
+  ])
+    .then(() => {
+      console.log("   🔵 TS declarations build completed ✔️");
     })
-      .generate()
-      .then(() => {
-        console.log("   🔵 TS declarations build completed ✔️");
-        resolve();
-      })
-      .catch((error) => {
-        console.warn(error);
-        process.exit(3);
-      });
-  });
+    .catch((error) => {
+      console.warn(error);
+      process.exit(3);
+    });
 }
 
 async function start() {
@@ -132,7 +125,7 @@ async function start() {
   });
 }
 
-Promise.all([start(), mjs(), cjs(), dts()])
+Promise.all([start(), esm(), dts()])
   .then(() => {
     console.log("✅ Build completed");
     process.exit(0);
