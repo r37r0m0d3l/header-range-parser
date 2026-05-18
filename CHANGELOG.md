@@ -1,3 +1,11 @@
+# [1.2.0]
+
+### Breaking Changes
+
+* Drop support for Node.js < 20.
+* ESM-only package.
+* Types now have ESM exports.
+
 # [1.1.5]
 
 ### Fix

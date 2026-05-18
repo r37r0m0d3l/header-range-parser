@@ -26,6 +26,8 @@ Range header field parser. Fork of  a̶b̶a̶n̶d̶o̶n̶e̶d̶ [range-parser](h
 npm install header-range-parser
 ```
 
+The package now ships a single ESM build. On Node.js 20+, CommonJS callers can keep using `require()`.
+
 ## API
 
 <!-- eslint-disable no-unused-vars -->
